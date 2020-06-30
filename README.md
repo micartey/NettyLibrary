@@ -14,4 +14,4 @@ First of all, add the Netty dependecy to your `pom.xml`
 </dependency>
 ```
 
-Afterwards add the newest `release` to your dependencies
+Afterwards, add the newest `release` to your dependencies
