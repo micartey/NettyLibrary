@@ -2,7 +2,7 @@
 
 A small netty library to setup an easy to use server / client
 
-## Dependencies
+## Dependencies required
 
 ```java
 <dependency>
