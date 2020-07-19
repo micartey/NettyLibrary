@@ -2,9 +2,7 @@
 
 A small netty library to setup an easy to use server / client
 
-## Setup
-
-First of all, add the Netty dependecy to your `pom.xml`
+## Dependencies
 
 ```java
 <dependency>
@@ -12,6 +10,11 @@ First of all, add the Netty dependecy to your `pom.xml`
     <artifactId>netty-all</artifactId>
     <version>4.1.7.Final</version>
 </dependency>
-```
 
-Afterwards, add the newest `release` to your dependencies
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.8</version>
+    <scope>provided</scope>
+</dependency>
+```
