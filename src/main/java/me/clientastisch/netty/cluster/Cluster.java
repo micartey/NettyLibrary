@@ -35,14 +35,16 @@ public class Cluster implements ClusterStructure<Cluster> {
 
     private final ChannelGroup channels;
     private ICluster processor;
-    private Thread thread;
 
     private boolean autoPort;
     private int timeOut;
-    private Type type;
 
-    private String address, name;
-    private AtomicInteger port;
+    private final Type type;
+
+    private final AtomicInteger port;
+    private final String address;
+
+    private String name;
 
     public Cluster(String address, int port, Type type) {
         this.name = "Cluster@" + ThreadLocalRandom.current().nextInt(100, 999);
@@ -154,8 +156,7 @@ public class Cluster implements ClusterStructure<Cluster> {
 
     private class SocketProcessor extends ChannelInboundHandlerAdapter {
 
-        @Getter
-        private Cluster cluster;
+        @Getter private final Cluster cluster;
 
         private Channel channel;
         private long lastResponse;
@@ -212,11 +213,10 @@ public class Cluster implements ClusterStructure<Cluster> {
 
     private class NettyProcessor extends SimpleChannelInboundHandler<String> {
 
-        @Getter
-        private Cluster cluster;
+        @Getter private final Cluster cluster;
 
-        private Channel channel;
         private long lastResponse;
+        private Channel channel;
 
         public NettyProcessor(Cluster cluster) {
             this.cluster = cluster;
@@ -270,11 +270,10 @@ public class Cluster implements ClusterStructure<Cluster> {
 
     private class HttpProcessor extends SimpleChannelInboundHandler<HttpObject> {
 
-        @Getter
-        private Cluster cluster;
+        @Getter private final Cluster cluster;
 
-        private Channel channel;
         private long lastResponse;
+        private Channel channel;
 
         public HttpProcessor(Cluster cluster) {
             this.cluster = cluster;

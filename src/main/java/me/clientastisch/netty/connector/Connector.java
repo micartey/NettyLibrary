@@ -21,14 +21,16 @@ public class Connector implements ConnectorStructure<Connector> {
 
     private final ExecutorService executor;
 
-    private EventLoopGroup group;
+    private final EventLoopGroup group;
     private IConnector processor;
     private Channel channel;
 
-    private Type type;
+    private final Type type;
 
-    private String address, name;
-    private int port;
+    private final String address;
+    private final int port;
+
+    private String name;
 
     public Connector(String address, int port, Type type) {
         this.executor = Executors.newScheduledThreadPool(Math.min(Runtime.getRuntime().availableProcessors(), 2));
@@ -119,7 +121,7 @@ public class Connector implements ConnectorStructure<Connector> {
     private class TcpProcessor extends ChannelInboundHandlerAdapter {
 
         @Getter
-        private Connector connector;
+        private final Connector connector;
 
         public TcpProcessor(Connector connector) {
             this.connector = connector;
@@ -151,7 +153,7 @@ public class Connector implements ConnectorStructure<Connector> {
     private class NettyProcessor extends SimpleChannelInboundHandler<String> {
 
         @Getter
-        private Connector connector;
+        private final Connector connector;
 
         public NettyProcessor(Connector connector) {
             this.connector = connector;
@@ -185,6 +187,6 @@ public class Connector implements ConnectorStructure<Connector> {
     }
 
     public static enum Type {
-        STRING, BYTEBUF, HTTP
+        STRING, BYTEBUF
     }
 }
