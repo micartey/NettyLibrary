@@ -1,11 +1,5 @@
 # NettyLibrary
 
-A small netty library to setup an easy to use server / client
-
-<hr />
-
-<br>
-
 <div align="center">
   <a href="https://jitpack.io/v/Clientastisch/NettyLibrary/LATEST">
     <img
@@ -13,6 +7,10 @@ A small netty library to setup an easy to use server / client
     />
   </a>
 </div>
+
+<br>
+
+A small netty library to setup an easy to use server / client
 
 ## Dependencies required
 
