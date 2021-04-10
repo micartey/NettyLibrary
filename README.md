@@ -33,4 +33,10 @@ A small netty library to setup an easy to use server / client
     <artifactId>NettyLibrary</artifactId>
     <version>v1.0-SNAPSHOT</version>
 </dependency>
+
+<dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-all</artifactId>
+    <version>4.1.63.Final</version>
+</dependency>
 ```
