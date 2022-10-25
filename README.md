@@ -25,12 +25,12 @@
 
 <p align="center">
   <a href="#-introduction">Introduction</a> |
-  <a href="#-terms-of-use">Getting started</a> |
+  <a href="#-getting-started">Getting started</a> |
   <a href="https://github.com/micartey/NettyLibrary/issues">Troubleshooting</a>
 </p>
 
 <p align="center">
-  DEPRECATED
+  <b>DEPRECATED</b>
 </p>
 
 ## 📚 Introduction
