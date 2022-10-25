@@ -1,4 +1,4 @@
-# NettyLibrary (deprecated)
+# NettyLibrary
 
 <div align="center">
   <a href="https://www.oracle.com/java/">
@@ -29,6 +29,10 @@
   <a href="https://github.com/micartey/NettyLibrary/issues">Troubleshooting</a>
 </p>
 
+<p align="center">
+  DEPRECATED
+</p>
+
 ## 📚 Introduction
 
 `NettyLibrary` is a dependency to easily setup a client-server connection. There were no changes to the source code for years and thus the project is deprecated. However, deprecated but still usable.
@@ -57,13 +61,13 @@ The cluster is the server to which all the clients will connect.
 
 ```java
 Cluster cluster = new Cluster(
-    "127.0.0.1", //PUBLIC IP ADDRESS
-    3000,        //PORT
-    TYPE.STRING  //ENCODER TYPE (STRING, BYTEBUF, HTTP)
+    "127.0.0.1",
+    3000,
+    TYPE.STRING
 ).setProcessor(new ICluster() {...}).initialise();
 ```
 
-`ICluster` is an interface and has some functions which handle different events. You might want to instanciate it like in the provided example, but you can also create an extra class which implements the interface. Encoder type *STRING* is special to netty and not supported by other types. In case you want to receive messages from socket clients, you need to use *BYTEBUF*.
+[ICluster](https://micartey.github.io/NettyLibrary/docs/me/clientastisch/netty/cluster/ICluster.html) is an interface and has some functions which handle different events. You might want to instanciate it like in the provided example, but you can also create an extra class which implements the interface. Encoder type *STRING* is special to netty and not supported by other types. In case you want to receive messages from socket clients, you need to use *BYTEBUF*.
 
 ### Connector
 
@@ -71,27 +75,26 @@ The connector is the client trying to connect to the Server (Cluster).
 
 ```java
 Connector connector = new Connector(
-    "127.0.0.1", //PUBLIC IP ADDRESS
-    3000,        //PORT
-    TYPE.STRING  //ENCODER TYPE (STRING, BYTEBUF)
+    "127.0.0.1",
+    3000,
+    TYPE.STRING
 ).setProcessor(new IConnector() {...}).initialise();
 ```
 
-`IConnector` is similar to `ICluster` thus the above mentioned aspects also apply for this interface. 
+[IConnector](https://micartey.github.io/NettyLibrary/docs/me/clientastisch/netty/connector/IConnector.html) is similar to ICluster thus the above mentioned aspects also apply for this interface. 
 
 ### Sending messages to Cluster
 
 You can send messages to the cluster using one of the following methods:
 
 ```java
-// METHOD 1
 connector.write("Some message")
-
-// METHOD 2
+```
+```java
 connector.getChannel().writeAndFlush("Some message\r\n")
 ```
 
-Using the default netty channels will require you to use `\r\n` at the end because the message will not be sended in case you didn't append it at the end.
+Using the default netty channels will require you to use `\r\n` at the end because the message will not be send in case you didn't append it at the end.
 
 ### Sending messages to Clients
 
